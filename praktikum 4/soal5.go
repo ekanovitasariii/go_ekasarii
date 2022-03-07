@@ -2,21 +2,31 @@ package main
 
 import "fmt"
 
-func palindrome(input string)
-bool {
-	// your code here
+func palindrome(kata string) {
+	var hasilCek, hasilAkhir string
+	var panjangHuruf int
+	panjangHuruf = len(kata)
+
+	for x := 0; x < int(panjangHuruf); x++ {
+		y := (panjangHuruf - 1) - x
+		hasilCek = fmt.Sprintf("%c", kata[y])
+
+		if hasilCek != fmt.Sprintf("%c", kata[x]) {
+			hasilAkhir = "bukan palindrome"
+			break
+		} else {
+			hasilAkhir = "palindrome"
+		}
+
+	}
+	fmt.Println("kata", kata, "merupakan=", hasilAkhir)
+
 }
 
 func main() {
-
-	fmt.Println(palindrome("civic"))
-		// true
-	fmt.Println(palindrome("katak"))
-		// true
-	fmt.Println(palindrome("kasur rusak"))
-		// true
-	fmt.Println(palindrome("mistar"))
-		// false	
-	fmt.Println(palindrome("lion"))
-		// false
-}				
+	palindrome("civic")
+	palindrome("katak")
+	palindrome("kasur rusak")
+	palindrome("mistar")
+	palindrome("lion")
+}
