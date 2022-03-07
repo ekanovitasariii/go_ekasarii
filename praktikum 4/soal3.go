@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
     
-    var bilangan int
+    var bilangan int 
     fmt.Print("bilangan")
     fmt.Scanf("%d",&bilangan)
     for i := 1; i <= bilangan; i++ {
