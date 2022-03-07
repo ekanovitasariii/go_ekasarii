@@ -1,27 +1,27 @@
-package main 
+package main
 
 import (
 	"fmt"
 )
 
-func PrimeNumber(number int) bool {
+func primeNumber(number int) bool {
 	//variabel
-	index :=0
+	index := 0
 	var condition bool
 
 	//code
 	for i := 1; i <= number; i++ {
 		if number%i == 0 {
-			index++ 
+			index++
 		}
 	}
 	if index == 2 {
-		condition = true 
+		condition = true
 	}
-	return condition 
-}	
+	return condition
+}
 
-func main() {	
+func main() {
 	//input
 	fmt.Println(primeNumber(11))
 	fmt.Println(primeNumber(13))
