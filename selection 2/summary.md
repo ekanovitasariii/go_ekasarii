@@ -1,0 +1,3 @@
+introduction mengenai version control dan cara instalisasi git itu yang pertama itu kita buka browser dan ketik download github disana ada keterangan ada yang untuk windows dan laian lain dan juga ada ukurannya masing masing setelah itu kita bisa instal dan bisa digunakan
+selanjutnya itu ada tata cara setting up dan push yaitu dengan cara kita membuat sebuah polder terlebih dahulu yaitu dengan cara clone file yang di github kita dan selanjutnya untuk push kita membuat sebuah file di visual studio code dan setelah selesai bisa kita push dan di tampilkan di github kita masingmasing
+selanjutnya itu kita mempelajari bagaimana cara branch and conflig

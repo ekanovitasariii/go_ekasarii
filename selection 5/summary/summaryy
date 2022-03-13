@@ -1,0 +1,4 @@
+yang pertama membahas tentang time complexity yaitu menyatakan berapa lama suatu algoritma
+ berjalan ketika runtime berdasarkan input yang diberikan,
+ yang kedua space complexity menyatakan berapa banyak ruang dalam 
+ memori yang dibutuhkan suatu algoritma ketika beroperasi
