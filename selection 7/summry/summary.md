@@ -1,0 +1,7 @@
+yang pertama membahas tentang String dalam pemrograman komputer adalah sebuah deret simbol. Tipe data string adalah tipe data yang digunakan untuk menyimpan barisan karakter. Sebuah string umumnya dianggap sebagai tipe data dan sering diimplementasikan sebagai struktur data array bita (atau kata) yang menyimpan urutan elemen, biasanya karakter, menggunakan beberapa pengkodean karakter,string juga dapat mendenotasikan array yang lebih umum atau tipe dan struktur data urutan .
+yang kedua membahas tentang pointer merupakan variabel dengan tipe tertentu yang berguna untuk mencatat alamat dari suatu variabel yang setipe dengannya, serta mengakses, dan memanipulasi data yang tersimpan dalam alamat tersebut.
+yang ketika membahas tentang method adalah bagian-bagian kode yang dapat dipanggil oleh program utama atau dari method lainnya untuk menjalankan fungsi yang spesifik.
+berikut adalah karekter dari method :
+a . Dapat mengembalikan satu nilai atau tidak sama sekali,
+b . Dapat diterima beberapa parameter yang dibutuhkan atau tidak ada parameter sama sekali. Parameter bisa juga disebut sebagai argumen dari fungsi, parameter sama sekali. Parameter bisa juga disebut sebagai argumen dari fungsi,
+c . Setelah method telah selesai dieksekusi, dia akan kembali pada method yang memanggilnya.
