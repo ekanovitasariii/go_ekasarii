@@ -12,7 +12,7 @@ func AuthLogin(email, password string, c echo.Context) (bool, error) {
 }
 
 func BasicAuth(email, password string, c echo.Context) (bool, error) {
-	if email == "user" && password == "user"  {
+	if email == "user" && password == "user" {
 		return true, nil
 	}
 	return false, nil
