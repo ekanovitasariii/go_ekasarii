@@ -46,17 +46,17 @@ var DB *gorm.DB
 
 var JwtSecret string
 
-func InitDB()*gorm.DB {
-	connectionString := "root:@/test?charset=utf8mb4&parseTime=True&loc=Local"
+func InitDB() *gorm.DB {
+	connectionString := "root:@/projec_eka?charset=utf8mb4&parseTime=True&loc=Local"
 	var err error
 	DB, err = gorm.Open(mysql.Open(connectionString), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
-return DB
+	return DB
 }
 
 func InitMigrate() {
-	DB := InitDB()
+	InitDB()
 	DB.AutoMigrate(&model.User{}, &model.Product{})
 }

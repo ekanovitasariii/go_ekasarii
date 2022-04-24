@@ -6,13 +6,16 @@ import (
 	"ekanovitasari/routes"
 )
 
-func main(){
+func init() {
+	config.InitMigrate()
+}
+func main() {
 	config.InitDB()
 	e := routes.New()
 
 	// e.POST("/login",controller.LoginController)
 	// e.POST("/users",controller.CreateUserController)
-	
+
 	middleware.LogMiddleware(e)
 
 	// e.POST("/auth/login", controller.LoginController)
@@ -21,7 +24,6 @@ func main(){
 
 	// e.GET("/books", c.GetBooksController)
 	// e.GET("/books/:id", c.GetBookController)
-
 
 	// jwtAuth := e.Group("/restricted")
 	// jwtAuth.Use(middleware.JWT([]byte(config.JwtSecret)))
@@ -39,7 +41,6 @@ func main(){
 
 	// e.POST("/log/masuk",controller.LogMasuk)
 	// e.POST("/login",controller.LogKeluar)
-
 
 	// e.GET("/healthcheck",controller.HealthCheck)
 
