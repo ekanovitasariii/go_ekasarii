@@ -1,6 +1,6 @@
 package request
 
-import "projecmini/businesses/placeimages"
+import "projectour/businesses/placeimages"
 
 type PlaceImageRequest struct {
 	Place_ID   uint  `json:"place_id"`

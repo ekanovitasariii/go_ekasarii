@@ -1,30 +1,30 @@
 package main
 
 import (
-	_middleware "projecmini/app/middlewares"
+	_middleware "projectour/app/middlewares"
 
-	userUseCase "projecmini/businesses/users"
-	userController "projecmini/controllers/users"
-	userRepo "projecmini/drivers/repository/users"
+	userUseCase "projectour/businesses/users"
+	userController "projectour/controllers/users"
+	userRepo "projectour/drivers/repository/users"
 
-	placeUseCase "projecmini/businesses/places"
-	placeController "projecmini/controllers/places"
-	placeRepo "projecmini/drivers/repository/places"
+	placeUseCase "projectour/businesses/places"
+	placeController "projectour/controllers/places"
+	placeRepo "projectour/drivers/repository/places"
 
-	placeimageUseCase "projecmini/businesses/placeimages"
-	placeimageController "projecmini/controllers/placeimages"
-	placeimageRepo "projecmini/drivers/repository/placeimages"
+	placeimageUseCase "projectour/businesses/placeimages"
+	placeimageController "projectour/controllers/placeimages"
+	placeimageRepo "projectour/drivers/repository/placeimages"
 
-	savedplaceUseCase "projecmini/businesses/savedplace"
-	savedplaceController "projecmini/controllers/savedplace"
-	savedplaceRepo "projecmini/drivers/repository/savedplace"
+	savedplaceUseCase "projectour/businesses/savedplace"
+	savedplaceController "projectour/controllers/savedplace"
+	savedplaceRepo "projectour/drivers/repository/savedplace"
 
-	ratedplaceUseCase "projecmini/businesses/ratedplace"
-	ratedplaceController "projecmini/controllers/ratedplace"
-	ratedplaceRepo "projecmini/drivers/repository/ratedplace"
+	ratedplaceUseCase "projectour/businesses/ratedplace"
+	ratedplaceController "projectour/controllers/ratedplace"
+	ratedplaceRepo "projectour/drivers/repository/ratedplace"
 
-	"projecmini/app/routes"
-	"projecmini/drivers/mysql"
+	"projectour/app/routes"
+	"projectour/drivers/mysql"
 
 	"log"
 	"time"

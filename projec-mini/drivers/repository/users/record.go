@@ -1,7 +1,7 @@
 package users
 
 import (
-	"projecmini/businesses/users"
+	"projectour/businesses/users"
 	"time"
 
 	"gorm.io/gorm"

@@ -3,7 +3,7 @@ package ratedplace
 import (
 	"context"
 	"errors"
-	"projecmini/businesses/ratedplace" 
+	"projectour/businesses/ratedplace" 
 
 	"gorm.io/gorm"
 )

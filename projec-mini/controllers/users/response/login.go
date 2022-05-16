@@ -1,6 +1,6 @@
 package response
 
-import "projecmini/businesses/users"
+import "projectour/businesses/users"
 
 func UserLogin(domain users.Domain, token string) JWTResponse{
 	Response := UserResponse{

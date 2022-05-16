@@ -1,9 +1,9 @@
 package ratedplace
 
 import (
-	"projecmini/businesses/ratedplace" 
-	"projecmini/drivers/repository/places"
-	"projecmini/drivers/repository/users"
+	"projectour/businesses/ratedplace" 
+	"projectour/drivers/repository/places"
+	"projectour/drivers/repository/users"
 	"time"
 
 	"gorm.io/gorm"

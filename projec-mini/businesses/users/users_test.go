@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"projecmini/app/middlewares"
-	"projecmini/businesses/users"
-	"projecmini/businesses/users/mocks"
+	"projectour/app/middlewares"
+	"projectour/businesses/users"
+	"projectour/businesses/users/mocks"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"

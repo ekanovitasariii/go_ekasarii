@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"projecmini/businesses/users"
+	"projectour/businesses/users"
 
 	"gorm.io/gorm"
 )

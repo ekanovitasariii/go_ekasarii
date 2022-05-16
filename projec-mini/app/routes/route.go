@@ -1,27 +1,27 @@
 package routes
 
 import (
-	"projecmini/controllers/placeimages"
-	"projecmini/controllers/places"
-	"projecmini/controllers/users"
+	"projectour/controllers/placeimages"
+	"projectour/controllers/places"
+	"projectour/controllers/users"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
 
 type RouteControllerList struct {
-	JWTMiddleware  middleware.JWTConfig
-	UserController users.UserController 
-	PlaceController places.PlaceController
+	JWTMiddleware        middleware.JWTConfig
+	UserController       users.UserController
+	PlaceController      places.PlaceController
 	PlaceImageController placeimages.PlaceImageController
 }
 
 func (ctrl *RouteControllerList) RouteRegister(e *echo.Echo) {
 	jwt := middleware.JWTWithConfig(ctrl.JWTMiddleware)
-	
+
 	e.DELETE("/user/:id", ctrl.UserController.DeleteUserByID, jwt)
 	e.POST("register", ctrl.UserController.RegisterUser)
-	e.POST("login", ctrl.UserController.LoginUser) 
+	e.POST("login", ctrl.UserController.LoginUser)
 	e.GET("user/:id", ctrl.UserController.GetByID)
 	e.POST("user", ctrl.UserController.GetByEmail)
 	e.GET("users", ctrl.UserController.GetAllUsers)
@@ -38,6 +38,5 @@ func (ctrl *RouteControllerList) RouteRegister(e *echo.Echo) {
 	e.GET("/placeimage/:id", ctrl.PlaceImageController.GetByID)
 	e.PUT("/placeimage/:id", ctrl.PlaceImageController.Update)
 	e.DELETE("/placeimage/:id", ctrl.PlaceImageController.Delete)
-	
 
 }

@@ -1,7 +1,7 @@
 package response
 
 import (
-	"projecmini/businesses/placeimages" 
+	"projectour/businesses/placeimages" 
 	// respPlace "projecmini/controllers/places/response"
 	"time"
 

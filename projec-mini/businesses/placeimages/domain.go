@@ -2,7 +2,7 @@ package placeimages
 
 import (
 	"context"
-	"projecmini/businesses/places"
+	"projectour/businesses/places"
 	"time"
 
 	"gorm.io/gorm"

@@ -1,11 +1,11 @@
 package placeimages
 
 import (
-	"projecmini/businesses/placeimages"
-	"projecmini/controllers"
-	"projecmini/controllers/placeimages/request"
-	"projecmini/controllers/placeimages/response"
-	"projecmini/helpers"
+	"projectour/businesses/placeimages"
+	"projectour/controllers"
+	"projectour/controllers/placeimages/request"
+	"projectour/controllers/placeimages/response"
+	"projectour/helpers"
 	"net/http"
 	"strconv"
 

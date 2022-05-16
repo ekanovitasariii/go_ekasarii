@@ -1,8 +1,8 @@
 package placeimages
 
 import (
-	"projecmini/businesses/placeimages"
-	"projecmini/drivers/repository/places"
+	"projectour/businesses/placeimages"
+	"projectour/drivers/repository/places"
 	"time"
 
 	"gorm.io/gorm"

@@ -1,6 +1,6 @@
 package request
 
-import "projecmini/businesses/users"
+import "projectour/businesses/users"
 
 type GetByEmailRequest struct {
 	Email    string `json:"email"`

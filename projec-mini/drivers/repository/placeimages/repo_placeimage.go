@@ -3,7 +3,7 @@ package placeimages
 import (
 	"context"
 	"errors"
-	"projecmini/businesses/placeimages"
+	"projectour/businesses/placeimages"
 
 	"gorm.io/gorm"
 )

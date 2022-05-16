@@ -3,7 +3,7 @@ package savedplace
 import (
 	"context"
 	"errors"
-	"projecmini/businesses/savedplace"
+	"projectour/businesses/savedplace"
 
 	"gorm.io/gorm"
 )

@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"projecmini/app/middlewares"
+	"projectour/app/middlewares"
 	"golang.org/x/crypto/bcrypt"
 )
 

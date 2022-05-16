@@ -1,6 +1,6 @@
 package request
 
-import "projecmini/businesses/places"
+import "projectour/businesses/places"
 
 type PlaceRequest struct {
 	Author_ID   uint  `json:"author_id"`

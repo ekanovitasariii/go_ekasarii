@@ -2,11 +2,11 @@ package ratedplace
 
 import (
 	"net/http"
-	"projecmini/businesses/ratedplace"
-	"projecmini/controllers"
-	"projecmini/controllers/ratedplace/request"
-	"projecmini/controllers/ratedplace/response"
-	"projecmini/helpers"
+	"projectour/controllers"
+	"projectour/controllers/ratedplace/request"
+	"projectour/controllers/ratedplace/response"
+	"projectour/helpers"
+	"projectour/businesses/ratedplace"
 	"strconv"
 
 	"github.com/labstack/echo/v4"

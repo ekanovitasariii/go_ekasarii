@@ -1,9 +1,9 @@
 package savedplace
 
 import (
-	"projecmini/businesses/savedplace"
-	"projecmini/drivers/repository/places"
-	"projecmini/drivers/repository/users"
+	"projectour/businesses/savedplace"
+	"projectour/drivers/repository/places"
+	"projectour/drivers/repository/users"
 	"time"
 
 	"gorm.io/gorm"

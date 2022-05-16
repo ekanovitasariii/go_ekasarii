@@ -1,7 +1,7 @@
 package response
 
 import (
-	"projecmini/businesses/users"
+	"projectour/businesses/users"
 )
 
 

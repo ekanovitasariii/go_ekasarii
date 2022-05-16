@@ -1,7 +1,7 @@
 package response
 
 import (
-	"projecmini/businesses/ratedplace"
+	"projectour/businesses/ratedplace"
 	respPlace "projecmini/controllers/places/response"
 	respUser "projecmini/controllers/users/response"
 	"time"

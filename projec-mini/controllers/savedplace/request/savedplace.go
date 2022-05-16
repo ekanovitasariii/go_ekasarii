@@ -1,7 +1,7 @@
 package request
 
 import ( 
-	"projecmini/businesses/savedplace"
+	"projectour/businesses/savedplace"
 )
 
 type SavedPlaceRequest struct {

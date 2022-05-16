@@ -1,7 +1,7 @@
 package places
 
 import (
-	"projecmini/businesses/places"
+	"projectour/businesses/places"
 	"projecmini/controllers"
 	"projecmini/controllers/places/request"
 	"projecmini/controllers/places/response"

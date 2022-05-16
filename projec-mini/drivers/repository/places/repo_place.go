@@ -3,7 +3,7 @@ package places
 import (
 	"context"
 	"errors"
-	"projecmini/businesses/places"
+	"projectour/businesses/places"
 
 	"gorm.io/gorm"
 )

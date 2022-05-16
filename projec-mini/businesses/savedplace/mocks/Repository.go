@@ -2,7 +2,7 @@ package mocks
 
 import (
 	"context" 
-	"projecmini/businesses/users"
+	"projectour/businesses/users"
 
 	"github.com/stretchr/testify/mock"
 )

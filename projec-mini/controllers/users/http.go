@@ -1,11 +1,11 @@
 package users
 
 import (
-	"projecmini/businesses/users"
-	"projecmini/controllers"
-	"projecmini/controllers/users/request"
-	"projecmini/controllers/users/response"
-	"projecmini/helpers"
+	"projectour/businesses/users"
+	"projectour/controllers"
+	"projectour/controllers/users/request"
+	"projectour/controllers/users/response"
+	"projectour/helpers"
 	"net/http"
 	"strconv"
 

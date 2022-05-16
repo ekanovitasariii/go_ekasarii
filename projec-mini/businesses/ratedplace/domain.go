@@ -2,8 +2,8 @@ package ratedplace
 
 import (
 	"context"
-	"projecmini/businesses/places"
-	"projecmini/businesses/users"
+	"projectour/businesses/places"
+	"projectour/businesses/users"
 	"time"
 
 	"gorm.io/gorm"

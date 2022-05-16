@@ -1,8 +1,8 @@
 package places
 
 import (
-	"projecmini/businesses/places"
-	"projecmini/drivers/repository/users"
+	"projectour/businesses/places"
+	"projectour/drivers/repository/users"
 	"time"
 
 	"gorm.io/gorm"
