@@ -2,11 +2,11 @@ package savedplace
 
 import (
 	"net/http"
-	"projecmini/businesses/savedplace"
-	"projecmini/controllers"
-	"projecmini/controllers/savedplace/request"
-	"projecmini/controllers/savedplace/response"
-	"projecmini/helpers"
+	"projectour/businesses/savedplace"
+	"projectour/controllers"
+	"projectour/controllers/savedplace/request"
+	"projectour/controllers/savedplace/response"
+	"projectour/helpers"
 	"strconv"
 
 	"github.com/labstack/echo/v4"
@@ -94,5 +94,5 @@ func (controller *SavedPlaceController) Delete(c echo.Context) error {
 	if err != nil {
 		return controllers.NewErrorResponse(c, http.StatusBadRequest, err)
 	}
-	return controllers.NewSuccesResponse(c, nil, "Place removed from wishlist")
+	return controllers.NewSuccesResponse(c, nil, "place removed from wishlist")
 }

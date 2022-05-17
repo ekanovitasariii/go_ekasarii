@@ -1,12 +1,12 @@
 package places
 
 import (
-	"projectour/businesses/places"
-	"projecmini/controllers"
-	"projecmini/controllers/places/request"
-	"projecmini/controllers/places/response"
-	"projecmini/helpers"
 	"net/http"
+	"projectour/businesses/places"
+	"projectour/controllers"
+	"projectour/controllers/places/request"
+	"projectour/controllers/places/response"
+	"projectour/helpers"
 	"strconv"
 
 	"github.com/labstack/echo/v4"
@@ -22,7 +22,7 @@ func NewPlaceController(placeUseCase places.PlaceUsecaseInterface) *PlaceControl
 	}
 }
 
-func (controller *PlaceController) Add(c echo.Context) (error) {
+func (controller *PlaceController) Add(c echo.Context) error {
 	req := request.PlaceRequest{}
 	var err error
 	err = c.Bind(&req)
@@ -39,7 +39,7 @@ func (controller *PlaceController) Add(c echo.Context) (error) {
 	return controllers.NewSuccesResponse(c, response.FromDomain(data))
 }
 
-func (controller *PlaceController) GetAll(c echo.Context) (error) {
+func (controller *PlaceController) GetAll(c echo.Context) error {
 	req := c.Request().Context()
 	place, err := controller.placeUseCase.GetAll(req)
 	if err != nil {
@@ -48,7 +48,7 @@ func (controller *PlaceController) GetAll(c echo.Context) (error) {
 	return controllers.NewSuccesResponse(c, response.GetAllPlaces(place))
 }
 
-func (controller *PlaceController) GetByID(c echo.Context) (error) {
+func (controller *PlaceController) GetByID(c echo.Context) error {
 	req := c.Request().Context()
 	id := c.Param("id")
 	Convint, errConvint := strconv.Atoi(id)
@@ -62,7 +62,7 @@ func (controller *PlaceController) GetByID(c echo.Context) (error) {
 	return controllers.NewSuccesResponse(c, response.FromDomain(data))
 }
 
-func (controller *PlaceController) Update(c echo.Context) (error) {
+func (controller *PlaceController) Update(c echo.Context) error {
 	id := c.Param("id")
 	convID, err := helpers.StringToUint(id)
 	if err != nil {
@@ -82,7 +82,7 @@ func (controller *PlaceController) Update(c echo.Context) (error) {
 	return controllers.NewSuccesResponse(c, response.FromDomain(data))
 }
 
-func (controller *PlaceController) Delete(c echo.Context) (error) {
+func (controller *PlaceController) Delete(c echo.Context) error {
 	id := c.Param("id")
 	convID, err := helpers.StringToUint(id)
 	if err != nil {

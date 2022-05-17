@@ -15,14 +15,6 @@ import (
 	placeimageController "projectour/controllers/placeimages"
 	placeimageRepo "projectour/drivers/repository/placeimages"
 
-	savedplaceUseCase "projectour/businesses/savedplace"
-	savedplaceController "projectour/controllers/savedplace"
-	savedplaceRepo "projectour/drivers/repository/savedplace"
-
-	ratedplaceUseCase "projectour/businesses/ratedplace"
-	ratedplaceController "projectour/controllers/ratedplace"
-	ratedplaceRepo "projectour/drivers/repository/ratedplace"
-
 	"projectour/app/routes"
 	"projectour/drivers/mysql"
 
@@ -50,8 +42,6 @@ func DBMigrate(DB *gorm.DB) {
 	DB.AutoMigrate(&userRepo.User{})
 	DB.AutoMigrate(&placeRepo.Place{})
 	DB.AutoMigrate(&placeimageRepo.PlaceImage{})
-	DB.AutoMigrate(&savedplaceRepo.SavedPlace{})
-	DB.AutoMigrate(&ratedplaceRepo.RatedPlace{})
 }
 
 func main() {
@@ -86,20 +76,10 @@ func main() {
 	placeimageUseCaseInterface := placeimageUseCase.NewUseCase(placeimageRepoInterface, timeoutContext)
 	placeimageUseControllerInterface := placeimageController.NewPlaceImageController(placeimageUseCaseInterface)
 
-	savedplaceRepoInterface := savedplaceRepo.NewSavedPlaceRepo(DB)
-	savedplaceUseCaseInterface := savedplaceUseCase.NewUseCase(savedplaceRepoInterface, timeoutContext)
-	savedplaceUseControllerInterface := savedplaceController.NewSavedPlaceController(savedplaceUseCaseInterface)
-
-	ratedplaceRepoInterface := ratedplaceRepo.NewRatedPlaceRepo(DB)
-	ratedplaceUseCaseInterface := ratedplaceUseCase.NewUseCase(ratedplaceRepoInterface, timeoutContext)
-	ratedplaceUseControllerInterface := ratedplaceController.NewRatedPlaceController(ratedplaceUseCaseInterface)
-
 	routesInit := routes.RouteControllerList{
 		UserController:       *userUseControllerInterface,
 		PlaceController:      *placeUseControllerInterface,
 		PlaceImageController: *placeimageUseControllerInterface,
-		SavedPlaceController: *savedplaceUseControllerInterface,
-		RatedPlaceController: *ratedplaceUseControllerInterface,
 		JWTMiddleware:        configJWT.Init(),
 	}
 	routesInit.RouteRegister(e)
