@@ -14,7 +14,7 @@ import (
 
 type SavedPlaceController struct {
 	savedplaceUseCase savedplace.SavedPlaceUsecaseInterface
-}
+} 
 
 func NewSavedPlaceController(savedplaceUseCase savedplace.SavedPlaceUsecaseInterface) *SavedPlaceController {
 	return &SavedPlaceController{
@@ -22,7 +22,7 @@ func NewSavedPlaceController(savedplaceUseCase savedplace.SavedPlaceUsecaseInter
 	}
 }
 
-func (controller *SavedPlaceController) Add(c echo.Context) error {
+func (controller *SavedPlaceController) Add(c echo.Context) (error) {
 	req := request.SavedPlaceRequest{}
 	var err error
 	err = c.Bind(&req)
@@ -39,7 +39,7 @@ func (controller *SavedPlaceController) Add(c echo.Context) error {
 	return controllers.NewSuccesResponse(c, response.FromDomain(data), "Place added to wishlist")
 }
 
-func (controller *SavedPlaceController) GetAll(c echo.Context) error {
+func (controller *SavedPlaceController) GetAll(c echo.Context) (error) {
 	req := c.Request().Context()
 	savedplace, err := controller.savedplaceUseCase.GetAll(req)
 	if err != nil {
@@ -48,7 +48,7 @@ func (controller *SavedPlaceController) GetAll(c echo.Context) error {
 	return controllers.NewSuccesResponse(c, response.GetAllSavedPlaces(savedplace))
 }
 
-func (controller *SavedPlaceController) GetByID(c echo.Context) error {
+func (controller *SavedPlaceController) GetByID(c echo.Context) (error) {
 	req := c.Request().Context()
 	id := c.Param("id")
 	Convint, errConvint := strconv.Atoi(id)
@@ -62,7 +62,7 @@ func (controller *SavedPlaceController) GetByID(c echo.Context) error {
 	return controllers.NewSuccesResponse(c, response.FromDomain(data))
 }
 
-func (controller *SavedPlaceController) Update(c echo.Context) error {
+func (controller *SavedPlaceController) Update(c echo.Context) (error) {
 	id := c.Param("id")
 	convID, err := helpers.StringToUint(id)
 	if err != nil {
@@ -82,7 +82,7 @@ func (controller *SavedPlaceController) Update(c echo.Context) error {
 	return controllers.NewSuccesResponse(c, response.FromDomain(data))
 }
 
-func (controller *SavedPlaceController) Delete(c echo.Context) error {
+func (controller *SavedPlaceController) Delete(c echo.Context) (error) {
 	id := c.Param("id")
 	convID, err := helpers.StringToUint(id)
 	if err != nil {
@@ -94,5 +94,5 @@ func (controller *SavedPlaceController) Delete(c echo.Context) error {
 	if err != nil {
 		return controllers.NewErrorResponse(c, http.StatusBadRequest, err)
 	}
-	return controllers.NewSuccesResponse(c, nil, "place removed from wishlist")
+	return controllers.NewSuccesResponse(c, nil, "Place removed from wishlist")
 }
