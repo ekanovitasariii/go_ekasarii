@@ -1,9 +1,9 @@
 package response
 
 import (
-	"projecmini/businesses/savedplace"
-	respUser "projecmini/controllers/users/response"
-	respPlace "projecmini/controllers/places/response"
+	"projectour/businesses/savedplace"
+	respPlace "projectour/controllers/places/response"
+	respUser "projectour/controllers/users/response"
 	"time"
 
 	"gorm.io/gorm"
