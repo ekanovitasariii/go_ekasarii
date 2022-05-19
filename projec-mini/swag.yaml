@@ -1,29 +1,38 @@
 openapi: 3.0.0
 
 info:
-  title: Go Tour
+  title: My Apps
   description: this is a description
   version: 1.0.0-beta
   
 tags:
-  - name: Customer
-  - name: Auth
+  - name: Users
+  - name: Places
+  - name: RatedPlaces
+  - name: SavedPlaces
+  - name: Placelmages
 
 paths:
-  '/login':
+  '/users/login':
     post:
       summary: this is a login endpoint
       tags:
-        - Auth
+        - Users
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
+                id:
+                 type: number
+                 example: 1
                 username:
                   type: string
-                  example: username
+                  example: bambang
+                email:
+                   type: string 
+                   example: ekatejo1111@gmail.com
                 password:
                   type: string
                   example: supersecretpassword
@@ -38,15 +47,18 @@ paths:
                   message:
                     type: string
                     example: success
-                  rescode:
+                  id:
                     type: number
-                    example: 200
-                  data:
-                    type: object
-                    properties:
-                      token:
-                        type: string
-                        example: kjasldkjalksdjalkjdlaksjdkalj
+                    example: 1
+                  username:
+                    type: string
+                    example: bambang
+                  email:
+                   type: string 
+                   example: ekatejo1111@gmail.com
+                  token:
+                    type: string
+                    example: kjasldkjalksdjalkjdlaksjdkalj
         '402':
           description: user failure
           content:
@@ -60,7 +72,7 @@ paths:
                   rescode:
                     type: number
                     example: 402
-  '/getprofile/{id}':
+  '/api/getuser/{id}':
     get:
       summary: this is a get profile
       parameters:
@@ -69,29 +81,269 @@ paths:
           required: true
           schema:
             type: string
-      security:
-        - BearerAuth: []
       tags:
-        - Customer
+        - Users
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                    message:
+                     type: string
+                     example: success
+                    id:
+                     type: number
+                     example: 1
+                    username:
+                     type: string
+                     example: bambang
+                    email:
+                     type: string 
+                     example: ekatejo1111@gmail.com
+        '402':
+          $ref: "#/components/responses/402badrequest"
+  '/delete/User/{id}':
+    delete:
+      summary: this is a delete profile
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Success delete
+          content:
+            application/json:
+              schema:
+                  allOf:
+                    - $ref: "#/components/schemas/success200"
+        '402':
+          description: user failure
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: bad request, user failure
+                  rescode:
+                    type: number
+                    example: 402
+  '/put/users/{id}':
+    put:
+      summary: this is a login endpoint
+      parameters:
+          - name: id
+            in: path
+            required: true
+            schema:
+              type: string
+      tags:
+        - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                 type: number
+                 example: 1
+                username:
+                  type: string
+                  example: bambang
+                email:
+                   type: string 
+                   example: ekatejo1111@gmail.com
+                password:
+                  type: string
+                  example: supersecretpassword
       responses:
         '200':
           description: success response
           content:
             application/json:
               schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: success
+                  id:
+                    type: number
+                    example: 1
+                  username:
+                    type: string
+                    example: bambang
+                  email:
+                   type: string 
+                   example: ekatejo1111@gmail.com
+                  token:
+                    type: string
+                    example: kjasldkjalksdjalkjdlaksjdkalj
+        '402':
+          description: user failure
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: bad request, user failure
+                  rescode:
+                    type: number
+                    example: 402
+  '/places':
+    post:
+      summary: this is a login endpoint
+      tags:
+        - Places
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                 type: number
+                 example: 1
+                author_id:
+                  type: number
+                  example: 1
+                name:
+                  type: string
+                  example: pantai selatan
+                location:
+                   type: string 
+                   example: bengkulu
+                description:
+                  type: string
+                  example: ini tempat wisata
+                rating:  
+                   type: number
+                   example: 9
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+             schema:
+              type: object
+              properties:
+                id:
+                 type: number
+                 example: 1
+                author_id:
+                  type: number
+                  example: 1
+                name:
+                  type: string
+                  example: pantai selatan
+                location:
+                   type: string 
+                   example: bengkulu
+                description:
+                  type: string
+                  example: ini tempat wisata
+                rating:  
+                   type: number
+                   example: 9
+        '402':
+          description: user failure
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: bad request, user failure
+                  rescode:
+                    type: number
+                    example: 402
+  '/Places':
+    get:
+      summary: this is a get profile
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - Places
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                    message:
+                     type: string
+                     example: success
+                    id:
+                     type: number
+                     example: 1
+                    author_id:
+                     type: number
+                     example: 1
+                    name:
+                     type: string 
+                     example: pantai selatan
+                    location:
+                     type: string
+                     example: bengkulu
+                    description:
+                     type: string
+                     example: ini tempat wisata
+                    rating: 
+                     type: number
+                     example: 9
+        '402':
+          $ref: "#/components/responses/402badrequest"  
+  '/delete/Places/{id}':
+    delete:
+      summary: this is a delete profile
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - Places
+      responses:
+        '200':
+          description: Success delete
+          content:
+            application/json:
+              schema:
                   allOf:
                     - $ref: "#/components/schemas/success200"
-                    - type: object
-                      properties:
-                        data:
-                          type: object
-                          properties:
-                            token:
-                              type: string
-                              example: kjasldkjalksdjalkjdlaksjdkalj
         '402':
-          $ref: "#/components/responses/402badrequest"
-
+          description: user failure
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: bad request, user failure
+                  rescode:
+                    type: number
+                    example: 402
 components:
   schemas:
     success200:
@@ -121,4 +373,4 @@ components:
     BearerAuth:
       type: http
       scheme: bearer
-      bearerFormat: JWT 
+      bearerFormat: JWT
