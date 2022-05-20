@@ -268,7 +268,7 @@ paths:
                   rescode:
                     type: number
                     example: 402
-  '/Places'id':
+  '/Places{id}':
     get:
       summary: this is a get profile
       parameters:
