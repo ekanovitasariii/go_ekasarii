@@ -8,9 +8,7 @@ info:
 tags:
   - name: Users
   - name: Places
-  - name: RatedPlaces
-  - name: SavedPlaces
-  - name: Placelmages
+
 
 paths:
   '/users/login':
@@ -270,7 +268,7 @@ paths:
                   rescode:
                     type: number
                     example: 402
-  '/Places':
+  '/Places'id':
     get:
       summary: this is a get profile
       parameters:

@@ -1,12 +1,13 @@
 package users
 
 import (
+	"log"
+	"net/http"
 	"projectour/businesses/users"
 	"projectour/controllers"
 	"projectour/controllers/users/request"
 	"projectour/controllers/users/response"
 	"projectour/helpers"
-	"net/http"
 	"strconv"
 
 	"github.com/labstack/echo/v4"
@@ -16,13 +17,14 @@ type UserController struct {
 	userUseCase users.UserUsecaseInterface
 }
 
-func NewUserController(UserUseCase users.UserUsecaseInterface) *UserController{
+func NewUserController(UserUseCase users.UserUsecaseInterface) *UserController {
 	return &UserController{
 		userUseCase: UserUseCase,
 	}
 }
 
-func (userController *UserController) RegisterUser (c echo.Context) error {
+func (userController *UserController) RegisterUser(c echo.Context) error {
+	log.Println("controlerregister")
 	req := request.RegisterUserRequest{}
 	var err error
 	err = c.Bind(&req)
@@ -40,9 +42,7 @@ func (userController *UserController) RegisterUser (c echo.Context) error {
 
 }
 
-
-
-func (userController *UserController) LoginUser (c echo.Context) error {
+func (userController *UserController) LoginUser(c echo.Context) error {
 	var login users.Domain
 	var err error
 	var token string
@@ -62,7 +62,7 @@ func (userController *UserController) LoginUser (c echo.Context) error {
 	return controllers.NewSuccesResponse(c, response.UserLogin(login, token))
 }
 
-func (userController *UserController) CheckingUser (c echo.Context) error {
+func (userController *UserController) CheckingUser(c echo.Context) error {
 	var data users.Domain
 	var err error
 	ctx := c.Request().Context()
@@ -81,10 +81,9 @@ func (userController *UserController) CheckingUser (c echo.Context) error {
 	return controllers.NewSuccesResponse(c, response.FromUserRegister(data))
 }
 
-
-func (userController *UserController) GetByEmail (c echo.Context) error {
+func (userController *UserController) GetByEmail(c echo.Context) error {
 	ctx := c.Request().Context()
-	req := request.GetByEmailRequest{} 
+	req := request.GetByEmailRequest{}
 	err := c.Bind(&req)
 	if err != nil {
 		return controllers.NewErrorResponse(c, http.StatusBadRequest, err)
@@ -96,21 +95,21 @@ func (userController *UserController) GetByEmail (c echo.Context) error {
 	return controllers.NewSuccesResponse(c, response.FromUserRegister(data))
 }
 
-func (userController *UserController) GetByID (c echo.Context) error{
+func (userController *UserController) GetByID(c echo.Context) error {
 	req := c.Request().Context()
 	id := c.Param("id")
 	Convint, errConvint := strconv.Atoi(id)
 	if errConvint != nil {
 		return controllers.NewErrorResponse(c, http.StatusBadRequest, errConvint)
 	}
-	data, err := userController.userUseCase.GetByID(uint(Convint), req )
+	data, err := userController.userUseCase.GetByID(uint(Convint), req)
 	if err != nil {
 		return controllers.NewErrorResponse(c, http.StatusInternalServerError, err)
 	}
 	return controllers.NewSuccesResponse(c, response.FromUserRegister(data))
 }
 
-func (userController *UserController) GetAllUsers (c echo.Context) error {
+func (userController *UserController) GetAllUsers(c echo.Context) error {
 	req := c.Request().Context()
 	user, err := userController.userUseCase.GetAllUsers(req)
 	if err != nil {
@@ -120,7 +119,7 @@ func (userController *UserController) GetAllUsers (c echo.Context) error {
 
 }
 
-func (userController *UserController) UpdateUserByID (c echo.Context) error{
+func (userController *UserController) UpdateUserByID(c echo.Context) error {
 	id := c.Param("id")
 	convID, err := helpers.StringToUint(id)
 	if err != nil {
@@ -141,8 +140,7 @@ func (userController *UserController) UpdateUserByID (c echo.Context) error{
 
 }
 
-
-func (userController *UserController) DeleteUserByID (c echo.Context) error{
+func (userController *UserController) DeleteUserByID(c echo.Context) error {
 	id := c.Param("id")
 	convID, err := helpers.StringToUint(id)
 	if err != nil {
