@@ -3,10 +3,13 @@ package users
 import (
 	"context"
 	"errors"
+
+	// "fmt"
 	"log"
 	"time"
 
 	"projectour/app/middlewares"
+
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -69,7 +72,7 @@ func (usecase *UserUseCase) LoginUser(email string, password string, ctx context
 	if err != nil {
 		return Domain{},"", err
 	}
-
+	// fmt.Println(user)
 	token, errToken := usecase.JWTAuth.GenerateTokenJWT(user.Id, user.Email, user.Name)
 	if errToken != nil {
 		log.Println(errToken)
